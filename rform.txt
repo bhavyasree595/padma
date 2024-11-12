@@ -1,0 +1,85 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class RegistrationForm {
+    
+    // Declare components
+    private JFrame frame;
+    private JTextField txtName, txtEmail;
+    private JPasswordField txtPassword;
+    private JButton btnSubmit;
+    private JLabel lblName, lblEmail, lblPassword, lblMessage;
+    
+    public RegistrationForm() {
+        // Initialize frame
+        frame = new JFrame("Registration Form");
+        frame.setSize(350, 250);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        
+        // Create components
+        lblName = new JLabel("Name:");
+        lblEmail = new JLabel("Email:");
+        lblPassword = new JLabel("Password:");
+        lblMessage = new JLabel("");
+        
+        txtName = new JTextField(20);
+        txtEmail = new JTextField(20);
+        txtPassword = new JPasswordField(20);
+        
+        btnSubmit = new JButton("Register");
+        
+        // Set layout manager
+        frame.setLayout(new GridLayout(5, 2, 10, 10));  // 5 rows, 2 columns
+        
+        // Add components to frame
+        frame.add(lblName);
+        frame.add(txtName);
+        
+        frame.add(lblEmail);
+        frame.add(txtEmail);
+        
+        frame.add(lblPassword);
+        frame.add(txtPassword);
+        
+        frame.add(btnSubmit);
+        frame.add(lblMessage);
+        
+        // Event handler for the submit button
+        btnSubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = txtName.getText();
+                String email = txtEmail.getText();
+                String password = new String(txtPassword.getPassword());
+                
+                // Basic validation
+                if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                    lblMessage.setText("Please fill all fields.");
+                    lblMessage.setForeground(Color.RED);
+                } else if (!email.contains("@")) {
+                    lblMessage.setText("Invalid email format.");
+                    lblMessage.setForeground(Color.RED);
+                } else {
+                    lblMessage.setText("Registration Successful!");
+                    lblMessage.setForeground(Color.GREEN);
+                }
+            }
+        });
+        
+        // Make the frame visible
+        frame.setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+        // Run the registration form
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new RegistrationForm();
+            }
+        });
+    }
+}
