@@ -1,0 +1,24 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class LoginForm {
+    
+    // Declare components
+    private JFrame frame;
+    private JTextField txtUsername;
+    private JPasswordField txtPassword;
+    private JButton btnLogin;
+    private JLabel lblUsername, lblPassword, lblMessage;
+    
+    // Predefined valid credentials (you can replace this with a real database in a real-world scenario)
+    private String validUsername = "admin";
+    private String validPassword = "password123";
+    
+    public LoginForm() {
+        // Initialize the frame
+        frame = new JFrame("Login Form");
+        frame.setSize(350, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.set
