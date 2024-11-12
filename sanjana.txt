@@ -1,0 +1,2 @@
+git add <filename>   # Add a specific file
+git add .            # Add all changes (new files, modified files, deleted files)
