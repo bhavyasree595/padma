@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// Function to check if the string is a palindrome
+int isPalindrome(char str[]) {
+    int start = 0;
+    int end = strlen(str) - 1;
+
+    // Loop through the string from both ends
+    while (start < end) {
+        // Ignore non-alphanumeric characters and make the comparison case-insensitive
+        if (!isalnum(str[start])) {
+            start++;
+        } else if (!isalnum(str[end])) {
+            end--;
+        } el
